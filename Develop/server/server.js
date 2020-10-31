@@ -1,8 +1,10 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Connect to the Mongo DB using MLAB
+const db = require('./config/connection');
 
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
@@ -16,16 +18,11 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-// Connect to the Mongo DB using MLAB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://user1:password1@XXXX.mlab.com:XXXXX/heroku_XXXXX",
-  {
-    useCreateIndex: true,
-    useNewUrlParser: true
-  }
-);
 
 // Start the API server
-app.listen(PORT, () =>
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
+db.once('open', () => {
+    app.listen(PORT, () => {
+        console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+        console.log(`Use GraphQL at https://localhost:${PORT}${server.graphqlPath}`);
+    });
+})

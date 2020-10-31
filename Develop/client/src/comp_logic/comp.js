@@ -1,0 +1,11 @@
+class computer {
+    /*
+    constructor(){
+
+    }
+    */
+
+    move() {
+        
+    }
+}
