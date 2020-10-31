@@ -3,6 +3,11 @@ const moment = require('moment');
 
 const gameSchema = new Schema(
     {
+        username: {
+            type: String,
+            required: true,
+            trim: true
+        },
         winner: {
             type: String,
             required: true,

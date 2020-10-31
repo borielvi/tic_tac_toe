@@ -10,6 +10,7 @@ const typeDefs = gql`
 
     type Game {
         _id: ID
+        username: String
         winner: String
         loser: String
         createdAt: String
