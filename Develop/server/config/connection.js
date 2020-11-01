@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://user1:password1@XXXX.mlab.com:XXXXX/heroku_XXXXX",
-    {
-        useCreateIndex: true,
-        useNewUrlParser: true
-    }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tictactoe",{
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+});
 
-module.export = mongoose.connection;
+module.exports = mongoose.connection;
