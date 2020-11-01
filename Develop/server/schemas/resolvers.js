@@ -60,6 +60,12 @@ const resolvers = {
             if (context.user) {
                 const game = await Game.create({ ...args, username: context.user.username });
 
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { games: game._id } },
+                    { new: true }
+                ).populate('games');
+
                 return game;
             }
 
