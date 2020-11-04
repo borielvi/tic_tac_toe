@@ -3,10 +3,13 @@ import {calculateWinner} from "../../utils/helper";
 import Board from "../Board";
 
 const Game = () => {
-    const [history , setHistory] = useState([9].fill(null));
+    const [history , setHistory] = useState([Array(9).fill(null)]);
     const [stepNumber , setStepNumber] = useState(0);
     const [xIsNext , setXisNext] = useState(true);
+    // console.log(history[stepNumber]);
+    // console.log(history)
     const winner = calculateWinner(history[stepNumber]);
+    // const winner = '';
     const xO = xIsNext ? "X" : "O";
 
     const handleClick = (i) => {
@@ -40,7 +43,7 @@ const Game = () => {
     return (
         <>
             <h1>React Tic Tac Toe with Hooks</h1>
-            <Board squares = {history[stepNumber]} onclick = {handleClick} />
+            <Board squares = {history[stepNumber]} onClick = {handleClick} />
             <div className = "info-wrapper">
                 <div>
                     <h3>History</h3>
