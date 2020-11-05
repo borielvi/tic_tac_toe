@@ -4,12 +4,12 @@ import React from "react";
 
 // This is a simple way to create a static page! 
 
-function NoMatch() {
-  return (
-    <Container fluid>
-      <h1>Oops, Nothing Here!</h1>
-    </Container>
-  );
+const NoMatch = () => {
+    return (
+        <Container fluid>
+        <h1>Oops, Nothing Here!</h1>
+        </Container>
+    );
 }
 
 export default NoMatch;
