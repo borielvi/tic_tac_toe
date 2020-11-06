@@ -1,7 +1,7 @@
 import React from "react";
 
 const Square = ({ value, onClick}) => {
-    const style = value ? `squares ${value}` : `squares`;
+    const style = value ? `game-cell ${value}` : `game-cell`;
     return (
         <button className = {style} onClick = {onClick}>
             {value}
