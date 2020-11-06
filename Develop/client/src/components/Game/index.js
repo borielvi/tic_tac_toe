@@ -42,7 +42,6 @@ const Game = () => {
     }
     return (
         <>
-            <h1>React Tic Tac Toe with Hooks</h1>
             <Board squares = {history[stepNumber]} onClick = {handleClick} />
             <div className = "info-wrapper">
                 <div>
