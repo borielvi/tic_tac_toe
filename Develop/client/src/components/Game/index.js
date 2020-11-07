@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from 'react-router-dom';
 import {calculateWinner} from "../../utils/helper";
 import Board from "../Board";
 
@@ -55,7 +56,7 @@ const Game = () => {
     return (
         <>
             <div className="container">
-                <h1 className="title">Tic <span>Tac</span> Toe <a className='btn login-btn'>Login</a> </h1>
+                <h1 className="title">Tic <span>Tac</span> Toe <Link to='/login' className='btn login-btn'>Login</Link> </h1>
                 <div className="status-action">
                     <h3 className="status">{winner ? "Winner: " + winner : "Next Player: " + xO} </h3>
                     <div className="reset" onClick= {handleReset} >Reset</div>

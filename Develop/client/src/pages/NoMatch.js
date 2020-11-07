@@ -6,9 +6,9 @@ import React from "react";
 
 const NoMatch = () => {
     return (
-        <Container fluid>
-        <h1>Oops, Nothing Here!</h1>
-        </Container>
+        <div>
+            <h1>Oops, Nothing Here!</h1>
+        </div>
     );
 }
 

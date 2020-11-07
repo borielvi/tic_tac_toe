@@ -35,6 +35,8 @@ function App() {
                     <Route exact path='/home' component={Home}/>
                     <Route exact path='/signup' component={Signup}/>
                     <Route exact path='/login' component={Login}/>
+
+                    <Route component={NoMatch}/>
                 </Switch>
             </Router>
         </ApolloProvider>

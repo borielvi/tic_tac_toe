@@ -23,33 +23,6 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-
-.btn {
-    font-size: 1.3rem;
-    text-decoration: none;
-    padding: 0.5rem 1.2rem;
-    margin: 5px 0;
-    border-radius: var(--border-radius);
-    border: none;
-    color: var(--dark);
-    outline: none;
-    background-color: var(--secondary);
-    transition: all 0.5s;
-}
-
-.login-btn {
-    float: right;
-    font-weight: 550;
-    font-size: large;
-}
-
-.form-input {
-    border-radius: var(--border-radius);
-    border: none;
-    background-color: rgb(172, 172, 173);
-    outline: none;
-}
-
   
 @media (min-width: 500px) {
     .container, .info-wrap {
@@ -187,4 +160,56 @@ body {
     .o::after {
         font-size: 125px;
     }
+}
+
+
+/* 
+Signup, login, and home page css
+*/
+.btn {
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+    border: none;
+    color: var(--dark);
+    outline: none;
+    background-color: var(--secondary);
+    transition: all 0.5s;
+}
+
+.login-btn {
+    float: right;
+    font-weight: 550;
+    font-size: large;
+}
+
+.form-input {
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: rgb(172, 172, 173);
+    outline: none;
+    color: #222424;
+    margin: 2.5px;
+    font-size: larger;
+}
+
+.form-input::placeholder {
+    font-size: larger;
+}
+
+.btns {
+    margin: 1.5px;
+}
+
+.center-align {
+    text-align: center;
+    margin: 225px;
+    padding:99px;
+}
+
+.signup-h2 {
+    color: black;
+    font-weight: 600;
 }
