@@ -29,12 +29,12 @@ const Game = () => {
         window.location.reload();
     };
 
+    /*
     const jumpTo = (step) => {
         setStepNumber(step);
         setXisNext(step % 2 === 0)
     };
     
-    /*
     const renderMoves = () => {
         history.map((_step, move) => {
             const destinaton = move ? `Go to move #${move}` : "Go to Start";
@@ -46,11 +46,16 @@ const Game = () => {
         })
     }
     */
-   
+
+    if (winner) {
+        // save data to mongo
+        console.log("test");
+    }
+
     return (
         <>
             <div className="container">
-                <h1 className="title">Tic <span>Tac</span> Toe</h1>
+                <h1 className="title">Tic <span>Tac</span> Toe <a className='btn login-btn'>Login</a> </h1>
                 <div className="status-action">
                     <h3 className="status">{winner ? "Winner: " + winner : "Next Player: " + xO} </h3>
                     <div className="reset" onClick= {handleReset} >Reset</div>

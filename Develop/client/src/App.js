@@ -2,13 +2,13 @@ import React from "react";
 
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-/*
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import YourHomePage from "./pages/YourHomePage";
-import SecondaryPage from "./pages/SecondaryPage";
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Home from './pages/Home';
 import NoMatch from "./pages/NoMatch";
-*/
+
 import Game from "./components/Game"
 
 
@@ -29,7 +29,14 @@ const client = new ApolloClient({
 function App() {
     return (
         <ApolloProvider client={client}>
-            <Game/>
+            <Router>
+                <Switch>
+                    <Route exact path='/' component={Game}/>
+                    <Route exact path='/home' component={Home}/>
+                    <Route exact path='/signup' component={Signup}/>
+                    <Route exact path='/login' component={Login}/>
+                </Switch>
+            </Router>
         </ApolloProvider>
     );
 }

@@ -1,80 +1,126 @@
+:root {
+    --dark: #222424;
+    --secondary: #954af7;
+    --border-radius: 0.3rem;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  body {
+}
+
+body {
     color: #7CDF85;
     display: flex;
     font-family: sans-serif;
     justify-content: center;
-  }
-  .container, .info-wrap {
+}
+
+.container, .info-wrap {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-  }
+}
+
+.btn {
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+    border: none;
+    color: var(--dark);
+    outline: none;
+    background-color: var(--secondary);
+    transition: all 0.5s;
+}
+
+.login-btn {
+    float: right;
+    font-weight: 550;
+    font-size: large;
+}
+
+.form-input {
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: rgb(172, 172, 173);
+    outline: none;
+}
 
   
 @media (min-width: 500px) {
     .container, .info-wrap {
-      width: 750px;
+        width: 750px;
     }
-  }
-  @media (min-width: 992px) {
+}
+
+@media (min-width: 992px) {
     .container, .info-wrap {
-      width: 970px;
+        width: 970px;
     }
-  }
-  @media (min-width: 1200px) {
+}
+
+@media (min-width: 1200px) {
     .container, .info-wrap {
-      width: 1170px;
+        width: 1170px;
     }
-  }
-  .container {
+}
+
+.container {
     background: #412485;
     margin: 225px;
     padding:99px;
     border-radius: 31px;
     align-items: center;
     margin-top: 50px;
-  }
-  .info-wrap {
+}
+
+.info-wrap {
     align-items: center;
     margin-top: 50px;
-  }
-  .title {
+}
+
+.title {
     text-align: center;
-  }
-  .title span {
+}
+
+.title span {
     color: #0EF30E;
-  }
-  .status-action {
+}
+
+.status-action {
     display: flex;
     margin-top: 25px;
     font-size: 25px;
     justify-content: space-around;
     height: 30px;
-  }
-  .status span {
+}
+
+.status span {
     color: #F2EBD3;
-  }
-  .reset {
+}
+
+.reset {
     cursor: pointer;
-  }
-  .reset:hover {
+}
+
+.reset:hover {
     color: #F8F8F7;
-  }
-  .game-grid {
+}
+
+.game-grid {
     background: #412485;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 15px;
     margin-top: 50px;
-  }
-  .game-cell {
+}
+
+.game-cell {
     background: #FCFBFB;
     display: flex;
     justify-content: center;
@@ -82,52 +128,63 @@
     cursor: pointer;
     height: 200px;
     width: 200px;
-  }
-  .x,
-  .o {
+}
+
+.x, .o {
     cursor: default;
-  }
-  .x::after {
+}
+
+.x::after {
     content: '×';
     font-size: 200px;
-  }
-  .o::after {
+}
+
+.o::after {
     content: '○';
     color: #F2EBD3;
     font-size: 225px;
-  }
-  .won::after {
+}
+
+.won::after {
     color: #BD022F;
-  }
-  @media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 1024px) {
     .game-grid {
-      margin-top: 25px;
-      grid-gap: 10px;
+        margin-top: 25px;
+        grid-gap: 10px;
     }
+
     .game-cell {
-      height: 150px;
-      width: 150px;
+        height: 150px;
+        width: 150px;
     }
+
     .x::after {
-      font-size: 150px;
+        font-size: 150px;
     }
+
     .o::after {
-      font-size: 175px;
+        font-size: 175px;
     }
-  }
-  @media only screen and (max-width: 500px) {
+}
+
+@media only screen and (max-width: 500px) {
     .container, .info-wrap {
-      margin: 25px;
-      padding: 25px;
+        margin: 25px;
+        padding: 25px;
     }
+
     .game-cell {
-      height: 100px;
-      width: 100px;
+        height: 100px;
+        width: 100px;
     }
+
     .x::after {
-      font-size: 100px;
+        font-size: 100px;
     }
+
     .o::after {
-      font-size: 125px;
+        font-size: 125px;
     }
-  }
+}
