@@ -25,11 +25,16 @@ const Game = () => {
         setXisNext(!xIsNext);
     };
 
+    const handleReset = () => {
+        window.location.reload();
+    };
+
     const jumpTo = (step) => {
         setStepNumber(step);
         setXisNext(step % 2 === 0)
     };
     
+    /*
     const renderMoves = () => {
         history.map((_step, move) => {
             const destinaton = move ? `Go to move #${move}` : "Go to Start";
@@ -40,15 +45,18 @@ const Game = () => {
             )
         })
     }
+    */
+   
     return (
         <>
-            <Board squares = {history[stepNumber]} onClick = {handleClick} />
-            <div className = "info-wrapper info-wrap">
-                <div>
-                    <h3>History</h3>
-                    {renderMoves()}
+            <div className="container">
+                <h1 className="title">Tic <span>Tac</span> Toe</h1>
+                <div className="status-action">
+                    <h3 className="status">{winner ? "Winner: " + winner : "Next Player: " + xO} </h3>
+                    <div className="reset" onClick= {handleReset} >Reset</div>
                 </div>
-                <h3>{winner ? "Winner: " + winner : "Next Player: " + xO} </h3>
+                
+                <Board squares = {history[stepNumber]} onClick = {handleClick} />                
             </div>
         </>
     )
