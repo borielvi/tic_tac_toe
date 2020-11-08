@@ -1,0 +1,24 @@
+{
+    "name": "react-google-books",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "engines": {"node":"12.18.2"},
+    "scripts": {
+        "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+        "start:prod": "cd server && npm start",
+        "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+        "client": "cd client && npm run start",
+        "install": "cd client && npm install && cd server and npm install && npm install",
+        "build": "cd client && npm run build",
+        "heroku-postbuild": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^5.3.0"
+    },
+    "dependencies": {
+        "if-env": "^1.0.4"
+    }
+}
