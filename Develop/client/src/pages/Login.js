@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -31,8 +32,45 @@ const Login = () => {
     };
 
     return (
-        <>
-        </>
+        <main>
+            <div>
+                <div className="container center-align">
+                    <h4 className='signup-h2'>Login to save your games</h4>
+                    <div>
+                        <form onSubmit={handleFormSubmit}>
+                            <br/>
+                            <input 
+                                className='form-input'
+                                placeholder='Email'
+                                name='email'
+                                type='email'
+                                id='email'
+                                value={formState.email}
+                                onChange={handleChange}
+                            />
+                            <br/>
+                            <input
+                                className='form-input'
+                                placeholder='******'
+                                name='password'
+                                type='password'
+                                id='password'
+                                value={formState.password}
+                                onChange={handleChange}
+                            />
+                            <br/>
+                            <button className='btn' type='submit'>
+                                Login
+                            </button>
+                            <Link to='/signup' className='btn'>
+                                Sign-up
+                            </Link>
+                        </form>
+                        {error && <div>Login failed</div>}
+                    </div>
+                </div>
+            </div>
+        </main>
     )
 };
 

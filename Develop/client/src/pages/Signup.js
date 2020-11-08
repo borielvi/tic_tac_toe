@@ -73,7 +73,7 @@ const Signup = () => {
                                 <button className='btn' type='submit'>
                                     Sign-up
                                 </button>
-                                <Link to='/login' className='btn' href="/login">
+                                <Link to='/login' className='btn'>
                                     Login
                                 </Link>
                             </div>
