@@ -1,16 +1,20 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import {calculateWinner} from "../../utils/helper";
+import { useMutation } from '@apollo/react-hooks'
+import Auth from '../../utils/auth';
+import { ADD_GAME } from '../../utils/mutations';
+import { calculateWinner } from "../../utils/helper";
 import Board from "../Board";
 
 const Game = () => {
     const [history , setHistory] = useState([Array(9).fill(null)]);
     const [stepNumber , setStepNumber] = useState(0);
     const [xIsNext , setXisNext] = useState(true);
+    const [gameState, setGameState] = useState({ winner: '', loser: '' })
+    const [addGame, { error }] = useMutation(ADD_GAME);
     // console.log(history[stepNumber]);
-    // console.log(history)
+    // console.log(history);
     const winner = calculateWinner(history[stepNumber]);
-    // const winner = '';
     const xO = xIsNext ? "X" : "O";
 
     const handleClick = (i) => {
@@ -19,8 +23,8 @@ const Game = () => {
         const squares = [...current];
         // return if won or occupied
         if (winner || squares[i]) return;
-        //select the square
-        squares[i] =xO;
+        // select the square
+        squares[i] = xO;
         setHistory([...historyPoint, squares]);
         setStepNumber(historyPoint.length);
         setXisNext(!xIsNext);
@@ -29,6 +33,20 @@ const Game = () => {
     const handleReset = () => {
         window.location.reload();
     };
+
+    setTimeout(function () {
+        if (winner) {
+            if (winner === 'X'){
+                var loser = 'O';
+            } else {
+                loser = 'X';
+            }
+            setGameState({
+                winner: winner,
+                loser: loser
+            });
+        }
+    }, 500);
 
     /*
     const jumpTo = (step) => {
@@ -48,9 +66,29 @@ const Game = () => {
     }
     */
 
-    if (winner) {
+    const saveGame = async () => {
         // save data to mongo
-        console.log("test");
+        try {
+            var logged = Auth.loggedIn();
+        } catch (e) {
+            console.log(e);
+            logged = false;
+        }
+
+        if (logged) {
+            try {
+                const { data } = await addGame({
+                    variables: { ...gameState }
+                });
+                console.log(data);
+                window.location.replace('/home');
+            } catch (e) {
+                console.log(e);
+                console.log(error);
+            }
+        } else {
+            alert("You need to be logged in to save games");
+        }
     }
 
     return (
@@ -62,7 +100,8 @@ const Game = () => {
                     <div className="reset" onClick= {handleReset} >Reset</div>
                 </div>
                 
-                <Board squares = {history[stepNumber]} onClick = {handleClick} />                
+                <Board squares = {history[stepNumber]} onClick = {handleClick} />
+                {winner && <button className='btn save-game' onClick={saveGame}>Save Game</button>}
             </div>
         </>
     )

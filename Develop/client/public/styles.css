@@ -192,11 +192,13 @@ Signup, login, and home page css
     outline: none;
     color: #222424;
     margin: 2.5px;
-    font-size: larger;
+    font-size: 11px;
+    width: 20%;
+    height: auto;
 }
 
 .form-input::placeholder {
-    font-size: larger;
+    font-size: 11px;
 }
 
 .btns {
