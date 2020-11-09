@@ -35,6 +35,7 @@ const Signup = () => {
         <main>
             <div>
                 <div className="container center-align">
+                    <Link to='/' id='header'>Tic Tac Toe</Link>
                     <h4 className='signup-h2'>Sign-up to save your games</h4>
                     <div>
                         <form onSubmit={handleFormSubmit}>

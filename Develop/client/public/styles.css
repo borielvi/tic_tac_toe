@@ -205,6 +205,10 @@ Signup, login, and home page css
     margin: 1.5px;
 }
 
+.center {
+    text-align: center;
+}
+
 .center-align {
     text-align: center;
     margin: 225px;
@@ -214,4 +218,12 @@ Signup, login, and home page css
 .signup-h2 {
     color: black;
     font-weight: 600;
+}
+
+#header {
+    font-size: large;
+    color: var(--dark);
+    background-color: var(--secondary);
+    border-radius: var(--border-radius);
+    border: none;
 }
